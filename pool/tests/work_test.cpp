@@ -24,12 +24,12 @@ using namespace bp;
 
 BOOST_AUTO_TEST_SUITE(pool_tests)
 
-BOOST_AUTO_TEST_CASE(pool_test__constructor__returns_work)
+BOOST_AUTO_TEST_CASE(work_test__constructor__returns_work)
 {
     const hash_digest previous_block = hash_literal(
         "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f");
     bp::work instance(10, previous_block, 1000000000, "some_coinbase", {});
-    BOOST_CHECK(instance.get_version() == 10);
+    BOOST_CHECK(instance.version() == 10);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

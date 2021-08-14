@@ -24,8 +24,9 @@ list(APPEND EXTRA_INCLUDES ${LIBBITCOIN-SYSTEM_INCLUDE_DIRS})
 
 # add the executable
 add_executable(bp
-  src/work.cpp
-  src/pool.cpp)
+  src/pool.cpp
+  src/share.cpp
+  src/work.cpp)
 
 target_link_libraries(bp PUBLIC ${EXTRA_LIBS})
 
@@ -39,8 +40,10 @@ install(TARGETS bp DESTINATION bin)
 
 # Add tests
 add_executable(pool_test
+  src/share.cpp
   src/work.cpp
   ${PROJECT_SOURCE_DIR}/tests/main.cpp
+  ${PROJECT_SOURCE_DIR}/tests/share_test.cpp
   ${PROJECT_SOURCE_DIR}/tests/work_test.cpp
   )
 

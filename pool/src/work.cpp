@@ -32,14 +32,14 @@ work::work(const uint32_t version, const hash_digest& previous_block_hash,
 {
 }
 
-uint32_t work::get_version() const { return this->version_; }
+uint32_t work::version() const { return this->version_; }
 
-uint64_t work::get_difficulty() const { return this->difficulty_; }
+uint64_t work::difficulty() const { return this->difficulty_; }
 
-const hash_digest& work::get_previous_block_hash() const
+const hash_digest& work::previous_block_hash() const
 {
     return this->previous_block_hash_;
 }
 
-const std::string& work::get_coinbase() const { return this->coinbase_; }
+const std::string& work::coinbase() const { return this->coinbase_; }
 }

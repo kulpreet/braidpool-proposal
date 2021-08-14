@@ -39,10 +39,10 @@ public:
         const uint64_t difficulty, const std::string& coinbase,
         chain::transaction::list&& transactions);
 
-    uint32_t get_version() const;
-    uint64_t get_difficulty() const;
-    const hash_digest& get_previous_block_hash() const;
-    const std::string& get_coinbase() const;
+    uint32_t version() const;
+    uint64_t difficulty() const;
+    const hash_digest& previous_block_hash() const;
+    const std::string& coinbase() const;
 
 private:
     const uint32_t version_;

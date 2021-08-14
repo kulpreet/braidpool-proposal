@@ -29,7 +29,27 @@ using namespace bc::chain;
 using namespace bc::machine;
 using namespace bc::wallet;
 
+// Encapsulate a share for a given work
 class share {
+public:
+    share(const hash_digest& work_hash, const uint32_t nonce,
+        const uint64_t extra_nonce, const hash_digest& merkle_root,
+        uint64_t timestamp, const data_chunk& hub_public_key,
+        const data_chunk& miner_public_key,
+        const data_chunk& tor_service_public_key, hash_list shares);
+
+    const hash_digest& work_hash() const;
+
+private:
+    const hash_digest& work_hash_;
+    uint32_t nonce_;
+    uint64_t extra_nonce_;
+    const hash_digest& merkle_root_;
+    const uint64_t timestamp_;
+    const data_chunk& hub_public_key_;
+    const data_chunk& miner_public_key_;
+    const data_chunk& tor_service_public_key_;
+    hash_list shares_;
 };
 }
 

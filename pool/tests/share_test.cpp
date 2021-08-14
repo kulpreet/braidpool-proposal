@@ -18,26 +18,21 @@
  */
 
 #include "share.hpp"
+#include <boost/test/unit_test.hpp>
 
-namespace bp {
+using namespace bp;
 
-share::share(const hash_digest& work_hash, const uint32_t nonce,
-    const uint64_t extra_nonce, const hash_digest& merkle_root,
-    uint64_t timestamp, const data_chunk& hub_public_key,
-    const data_chunk& miner_public_key,
-    const data_chunk& tor_service_public_key, hash_list shares)
-    : work_hash_(work_hash)
-    , nonce_(nonce)
-    , extra_nonce_(extra_nonce)
-    , merkle_root_(merkle_root)
-    , timestamp_(timestamp)
-    , hub_public_key_(hub_public_key)
-    , miner_public_key_(miner_public_key)
-    , tor_service_public_key_(tor_service_public_key)
-    , shares_(shares)
+BOOST_AUTO_TEST_SUITE(pool_tests)
+
+BOOST_AUTO_TEST_CASE(share_test__constructor__returns_share)
 {
+    const hash_digest work_hash = hash_literal(
+        "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f");
+    const hash_digest merkle_root = hash_literal(
+        "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26g");
+    bp::share instance(work_hash, 100, 200, merkle_root, 1, data_chunk { 21u },
+        data_chunk { 22u }, data_chunk { 23u }, {});
+    BOOST_CHECK(instance.work_hash() == work_hash);
 }
 
-const hash_digest& share::work_hash() const { return this->work_hash_; }
-
-}
+BOOST_AUTO_TEST_SUITE_END()
