@@ -23,17 +23,17 @@ namespace bp {
 
 share::share(const hash_digest& work_hash, const uint32_t nonce,
     const uint64_t extra_nonce, const hash_digest& merkle_root,
-    uint64_t timestamp, const data_chunk& hub_public_key,
-    const data_chunk& miner_public_key,
-    const data_chunk& tor_service_public_key, hash_list shares)
+    uint64_t timestamp, const data_chunk& hub_pubkey,
+    const data_chunk& miner_pubkey, const data_chunk& tor_service_pubkey,
+    hash_list shares)
     : work_hash_(work_hash)
     , nonce_(nonce)
     , extra_nonce_(extra_nonce)
     , merkle_root_(merkle_root)
     , timestamp_(timestamp)
-    , hub_public_key_(hub_public_key)
-    , miner_public_key_(miner_public_key)
-    , tor_service_public_key_(tor_service_public_key)
+    , hub_pubkey_(hub_pubkey)
+    , miner_pubkey_(miner_pubkey)
+    , tor_service_pubkey_(tor_service_pubkey)
     , shares_(shares)
 {
 }

@@ -34,9 +34,9 @@ class share {
 public:
     share(const hash_digest& work_hash, const uint32_t nonce,
         const uint64_t extra_nonce, const hash_digest& merkle_root,
-        uint64_t timestamp, const data_chunk& hub_public_key,
-        const data_chunk& miner_public_key,
-        const data_chunk& tor_service_public_key, hash_list shares);
+        uint64_t timestamp, const data_chunk& hub_pubkey,
+        const data_chunk& miner_pubkey, const data_chunk& tor_service_pubkey,
+        hash_list shares);
 
     const hash_digest& work_hash() const;
 
@@ -46,9 +46,9 @@ private:
     uint64_t extra_nonce_;
     const hash_digest& merkle_root_;
     const uint64_t timestamp_;
-    const data_chunk& hub_public_key_;
-    const data_chunk& miner_public_key_;
-    const data_chunk& tor_service_public_key_;
+    const data_chunk& hub_pubkey_;
+    const data_chunk& miner_pubkey_;
+    const data_chunk& tor_service_pubkey_;
     hash_list shares_;
 };
 }
